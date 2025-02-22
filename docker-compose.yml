@@ -1,35 +1,9 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  app:
-    container_name: app
+  vite-app:
     build: .
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-    ports:
-      - "3000:3000"
-
-  nginx:
-    container_name: nginx
-    image: nginx
+    container_name: vite-app
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-
-  certbot:
-    container_name: certbot
-    image: certbot/certbot
-    restart: unless-stopped
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --agree-tos --email trongtinh2003.dev@gmail.com -d iiex.tech -d www.iiex.tech
+      - "3000:80"
