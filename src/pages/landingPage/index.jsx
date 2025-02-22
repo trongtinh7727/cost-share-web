@@ -25,7 +25,7 @@ const LandingPage = () => {
                     color="primary"
                     size="large"
                     component={Link}
-                    to="/"
+                    to="/cost_share.apk"
                 >
                     Get Started
                 </Button>
