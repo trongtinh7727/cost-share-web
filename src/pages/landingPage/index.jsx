@@ -1,8 +1,11 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const LandingPage = () => {
+    const handleDownload = () => {
+        window.location.href = "/cost_share.apk";
+    };
+
     return (
         <Box
             display="flex"
@@ -24,8 +27,7 @@ const LandingPage = () => {
                     variant="contained"
                     color="primary"
                     size="large"
-                    component={Link}
-                    to="/cost_share.apk"
+                    onClick={handleDownload}
                 >
                     Get Started
                 </Button>
